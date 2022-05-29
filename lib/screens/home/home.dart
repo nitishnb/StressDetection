@@ -39,7 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   showAlertDialog(BuildContext context) {
-    print(_auth.user);
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("Cancel",
@@ -85,7 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<User1>(context);
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -99,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.zero,
             children: [
               StreamBuilder<Info>(
-                  stream: DatabaseService(uid: user.uid).userData,
+                  stream: DatabaseService(uid: '1').userData,
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       Info? userData = snapshot.data;
